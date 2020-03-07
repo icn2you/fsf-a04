@@ -1,0 +1,31 @@
+/******************************************************************************
+FSWD:  Christopher B. Zenner
+Date:  03/07/2020
+File:  style.css
+Ver.:  0.1.0 20200306
+
+This CSS specifies the layout and style for the Crystals Collector game.
+*******************************************************************************/
+
+/* Debug */
+/* { border: 1px solid red !important; }
+   { border: 1px solid orange !important; }
+   { border: 1px solid yellow !important; }
+   { border: 1px solid green !important; }
+   { border: 1px solid blue !important; }
+   { border: 1px solid purple !important; }
+*/
+
+/******************************************************************************
+ Global Elements
+*******************************************************************************/
+* {
+  /* Make widths static */
+  box-sizing: border-box;
+}
+
+body {
+  background: #eee;
+  background-image: url("../images/memphis-colorful.png");
+  color: #666;
+}
