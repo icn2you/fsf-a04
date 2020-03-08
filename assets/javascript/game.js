@@ -65,13 +65,22 @@ class CollectorGame {
 
   /* *************************************************************
      generateTokenVals()
-     - Generate random numbers for each game token, y, such that
-       y is the number of points the player will increment when
-       the assigned game token is clicked.
+     - Generate a unique random number for each game token, y, 
+       such that y is the number of points the player will incre-
+       ment their score when the assigned game token is clicked.
      ************************************************************* */  
   generateTokenVals() {
+    var tokenVal, 
+        previousTokenVals = [];
+
     for (var key in this.tokens) {
-      this.tokens[key] = Math.floor(Math.random() * (this.#pointsMax - this.#pointsMin + 1)) + this.#pointsMin;
+      do {
+        tokenVal = Math.floor(Math.random() * (this.#pointsMax - this.#pointsMin + 1)) + this.#pointsMin;
+      } 
+      while (previousTokenVals.indexOf(tokenVal) > -1);
+
+      this.tokens[key] = tokenVal;
+      previousTokenVals.push(tokenVal);      
     }
 
     // DEBUG
