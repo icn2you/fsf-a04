@@ -11,41 +11,81 @@ stones.
 ******************************************************************************/
 
 class CollectorGame {
+  // PROPERTIES
   name = "Collector";
   instructions = "Click one of the icons to get started.";
-  collection = {};
-  score = 0;
-  losses = 0;
-  wins = 0;
-  randomNum;
-  #min = 19;
-  #max = 120;
-  #pieceMin = 1;
-  #pieceMax = 12;
+  tokens = {};
+  #score = 0;
+  #losses = 0;
+  #wins = 0;
+  #randomNum;
+  #gameMin = 19;
+  #gameMax = 120;
+  #pointsMin = 1;
+  #pointsMax = 12;
 
-  constructor(name, instructions, collection) {
+  // METHODS
+  /* *************************************************************
+     Constructor Method
+     - Create an object of type CollectorGame
+     ************************************************************* */
+  constructor(name, instructions, tokens) {
     this.name = name;
     this.instructions = instructions; 
-    this.collection = collection;
+    this.tokens = tokens;
+  }
+
+  /* *************************************************************
+     Accessor Methods
+     - Get object properties
+     ************************************************************* */
+  getPlayerScore() {
+    return this.#score;
   }
 
   getRandomNum() {
-    return this.randomNum;
+    return this.#randomNum;
   }
 
+  getTokenVal(token) { 
+    if (this.tokens[token] > 0)
+      return this.tokens[token];
+    else
+      return 0;
+  }
+
+  /* *************************************************************
+     generateRandomNum()
+     - Generate random number for game, x, such that x is the 
+       number the player must much by incrementing token values.
+     ************************************************************* */
   generateRandomNum() {
-    this.randomNum = Math.floor(Math.random() * (this.#max - this.#min + 1)) + this.#min;
+    this.#randomNum = Math.floor(Math.random() * (this.#gameMax - this.#gameMin + 1)) + this.#gameMin;
   }
 
-  generatePieceVals() {
-    for (var key in this.collection) {
-      this.collection[key] = Math.floor(Math.random() * (this.#pieceMax - this.#pieceMin + 1)) + this.#pieceMin;
+  /* *************************************************************
+     generateTokenVals()
+     - Generate random numbers for each game token, y, such that
+       y is the number of points the player will increment when
+       the assigned game token is clicked.
+     ************************************************************* */  
+  generateTokenVals() {
+    for (var key in this.tokens) {
+      this.tokens[key] = Math.floor(Math.random() * (this.#pointsMax - this.#pointsMin + 1)) + this.#pointsMin;
     }
 
     // DEBUG
-    for (var key in this.collection) {
-      console.log(key + " is assigned a value of " + this.collection[key] + ".");
+    for (var key in this.tokens) {
+      console.log(key + " is assigned a value of " + this.tokens[key] + ".");
     }
+  }
+
+  /* *************************************************************
+     incrementScore()
+     - Increase player's score by val.
+     ************************************************************* */    
+  incrementScore(val) {
+    this.#score += val;
   }
 }
 
@@ -58,13 +98,17 @@ $(document).ready(function() {
   // console.log(gemCollector);
 
   gemCollector.generateRandomNum();
+  gemCollector.generateTokenVals();
+
+  $("#random-number").text(gemCollector.getRandomNum());
+  $("#user-score").text(gemCollector.getPlayerScore());
 
   $("img").click(function(event) {
     // DEBUG
     console.log(event.target.id + " clicked!");
 
-    gemCollector.generatePieceVals();
+    gemCollector.incrementScore(gemCollector.getTokenVal(event.target.id));
 
-    $("#random-number").text(gemCollector.getRandomNum());
+    $("#user-score").text(gemCollector.getPlayerScore());
   });
 });
