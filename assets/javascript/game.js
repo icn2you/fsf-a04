@@ -43,6 +43,14 @@ class CollectorGame {
     return this.#score;
   }
 
+  getPlayerLosses() {
+    return this.#losses;
+  }
+
+  getPlayerWins() {
+    return this.#wins;
+  }
+
   getRandomNum() {
     return this.#randomNum;
   }
@@ -96,6 +104,22 @@ class CollectorGame {
   incrementScore(val) {
     this.#score += val;
   }
+
+  /* *************************************************************
+     incrementLosses()
+     - Add a loss to player's tallies.
+     ************************************************************* */      
+  incrementLosses() {
+    this.#losses++;
+  }
+
+  /* *************************************************************
+     incrementWins()
+     - Add a win to player's tallies.
+     ************************************************************* */    
+  incrementWins() {
+    this.#wins++
+  }
 }
 
 // Execute script once page is fully loaded
@@ -111,6 +135,8 @@ $(document).ready(function() {
 
   $("#random-number").text(gemCollector.getRandomNum());
   $("#user-score").text(gemCollector.getPlayerScore());
+  $("#user-wins").text(gemCollector.getPlayerWins());
+  $("#user-losses").text(gemCollector.getPlayerLosses());
 
   $("img").click(function(event) {
     // DEBUG
@@ -119,5 +145,18 @@ $(document).ready(function() {
     gemCollector.incrementScore(gemCollector.getTokenVal(event.target.id));
 
     $("#user-score").text(gemCollector.getPlayerScore());
+
+    // Handle wins ...
+    if (gemCollector.getPlayerScore() === gemCollector.getRandomNum()) {
+      gemCollector.incrementWins();
+      $("#user-feedback").text("YOU WIN!");
+      $("#user-wins").text(gemCollector.getPlayerWins());
+    }
+    // ... and losses.
+    else if (gemCollector.getPlayerScore() > gemCollector.getRandomNum()) {
+      gemCollector.incrementLosses();
+      $("#user-feedback").text("You lost!");
+      $("#user-losses").text(gemCollector.getPlayerLosses());
+    }
   });
 });
