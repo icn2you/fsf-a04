@@ -40,6 +40,10 @@ class CollectorGame {
      Accessor Methods
      - Get object properties
      ************************************************************* */
+  getGameInstructions() {
+    return this.instructions;
+  }
+
   getPlayerScore() {
     return this.#score;
   }
@@ -54,6 +58,10 @@ class CollectorGame {
 
   getRandomNum() {
     return this.#randomNum;
+  }
+
+  getNumGames() {
+    return this.#losses + this.#wins;
   }
 
   getTokenVal(token) { 
@@ -93,9 +101,9 @@ class CollectorGame {
     }
 
     // DEBUG
-    for (var key in this.tokens) {
-      console.log(key + " is assigned a value of " + this.tokens[key] + ".");
-    }
+    // for (var key in this.tokens) {
+    //   console.log(key + " is assigned a value of " + this.tokens[key] + ".");
+    // }
   }
 
   /* *************************************************************
@@ -139,8 +147,6 @@ $(document).ready(function() {
   let gemCollector = new CollectorGame("Gem Collector", 
     crystalCollectorInstr, 
     {"amethyst": 0, "citrine": 0, "emerald": 0, "ruby": 0});
-  // DEBUG
-  // console.log(gemCollector);
 
   function refreshUI() {
     $("#random-number").text(gemCollector.getRandomNum());
@@ -149,7 +155,14 @@ $(document).ready(function() {
     $("#user-losses").text(gemCollector.getPlayerLosses());  
   }
 
+  function givePlayerFeedback(feedback, icon) {
+    $("#user-feedback").text(feedback);
+    $("#user-feedback").append(icon);
+  }
+
   // Initialize game.
+  $("#game-instructions").append(gemCollector.getGameInstructions());
+  givePlayerFeedback("Game " + gemCollector.getNumGames());
   gemCollector.resetGameState();
   refreshUI();
 
@@ -166,13 +179,13 @@ $(document).ready(function() {
     // Handle wins ...
     if (gemCollector.getPlayerScore() === gemCollector.getRandomNum()) {
       gemCollector.incrementWins();
-      $("#user-feedback").text("YOU WIN!");
+      givePlayerFeedback('YOU WIN!', '&nbsp;<i class="fas fa-smile"></i>');
       gemCollector.resetGameState();
     }
     // ... and losses.
     else if (gemCollector.getPlayerScore() > gemCollector.getRandomNum()) {
       gemCollector.incrementLosses();
-      $("#user-feedback").text("You lost!");
+      givePlayerFeedback("You lost!", '&nbsp;<i class="fas fa-frown"></i>');
       gemCollector.resetGameState();
     }
 

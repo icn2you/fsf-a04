@@ -17,6 +17,32 @@ This CSS specifies the layout and style for the Crystals Collector game.
 */
 
 /******************************************************************************
+ Color Elements
+*******************************************************************************/
+.color-primary-0 { color: #4AAAA6 }	/* Main Primary color */
+.color-primary-1 { color: #ADE6E4 }
+.color-primary-2 { color: #75CAC7 }
+.color-primary-3 { color: #2D918E }
+.color-primary-4 { color: #138580 }
+
+.color-secondary-1-0 { color: #5A78B7 }	/* Main Secondary color (1) */
+.color-secondary-1-1 { color: #B5C6EA }
+.color-secondary-1-2 { color: #839CD2 }
+.color-secondary-1-3 { color: #3D5DA0 }
+.color-secondary-1-4 { color: #214592 }
+
+.color-secondary-2-0 { color: #63D65D }	/* Main Secondary color (2) */
+.color-secondary-2-1 { color: #B9F3B6 }
+.color-secondary-2-2 { color: #8AE585 }
+.color-secondary-2-3 { color: #43C23C }
+.color-secondary-2-4 { color: #20B119 }
+
+.greenish { color: #57be92; }
+.purplish { color: #6b77e7; }
+.redish { color: #ff5d95; }
+.yellowish { color: #ffe52a;}
+
+/******************************************************************************
  Global Elements
 *******************************************************************************/
 * {
@@ -25,7 +51,109 @@ This CSS specifies the layout and style for the Crystals Collector game.
 }
 
 body {
-  background: #eee;
+  background: #fff;
   background-image: url("../images/memphis-colorful.png");
-  color: #666;
+  color: #333;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/******************************************************************************
+ Navigation Elements
+*******************************************************************************/
+a, a:active, a:hover, a:visited {
+  color: #fff39d;
+  font-weight: 600;
+}
+
+/******************************************************************************
+ Header Elements
+*******************************************************************************/
+header .container-fluid {
+  background: #fff;
+  border-bottom: 1px solid #333;
+}
+
+h1, h3, h4 {
+  font-family: 'Great Vibes', cursive;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+#game-instructions h3 {
+  border-bottom: 1px solid #333;
+}
+
+h4 {
+  margin: 1vh auto;
+}
+
+h5,
+#user-losses,
+#user-wins {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+/******************************************************************************
+ Main Elements (Primary Content)
+*******************************************************************************/
+main .container {
+  margin-bottom: 10vh;
+}
+
+#game-instructions,
+#random-number-container,
+#user-score-container,
+#user-tallies-container {
+  border-radius: 5px;
+}
+
+#game-instructions {
+  background: #fff;
+  border: 2px solid #6b77e7;
+  margin: 1vh auto;
+  padding: 2vw;
+}
+
+#random-number-container {
+  background: #ffa2c3;
+}
+
+#user-score-container {
+  background: #b9b6ec;
+}
+
+#user-tallies-container {
+  background: #98d5b9;
+}
+
+#random-number,
+#user-score {
+  font-size: 3rem;
+}
+
+/******************************************************************************
+ Footer Elements
+*******************************************************************************/
+.fixed-bottom {
+  border-top: 5px #57be92 solid;
+  height: 8vh;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+}
+
+footer #copyright {
+  font-size: 0.75rem;
+  margin: 1vh 0;
+}
+
+footer #attribution {
+  font-size: 0.625rem;
 }

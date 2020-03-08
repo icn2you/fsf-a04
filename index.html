@@ -13,6 +13,10 @@
     <link rel="shortcut icon" href="assets/images/emerald.png">
 
     <!-- Fonts -->
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/05d8befa20.js" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -30,29 +34,46 @@
   <body>
     <!-- Header -->
     <header>
-      <h1>Crystals Collector</h1>
-      <h2>...</h2>
+      <div class="container-fluid mx-auto pt-3 text-center">
+        <h1>Crystals Collector</h1>
+        <h2><i class="fas fa-gem fa-xs purplish"></i> <i class="fas fa-gem fa-xs yellowish"></i> <i class="fas fa-gem fa-xs greenish"></i> <i class="fas fa-gem fa-xs redish"></i></h2>
+      </div>
     </header>
 
     <!-- Primary Content -->
     <main class="container">
-      <h3>Game Instructions</h3>
-      <div id="game-instructions"></div>
-      <h3>Random Number</h3>
-      <div id="random-number"></div>
-      <img src="assets/images/amethyst.png" alt="Amethyst Icon" class="img-fluid img-thumbnail" id="amethyst">
-      <img src="assets/images/citrine.png" alt="Citrine Icon" class="img-fluid img-thumbnail" id="citrine">
-      <img src="assets/images/emerald.png" alt="Emerald Icon" class="img-fluid img-thumbnail" id="emerald">
-      <img src="assets/images/ruby.png" alt="Ruby Icon" class="img-fluid img-thumbnail" id="ruby">
-      <h3>Player's Score</h3>
-      <div id="user-score"></div>
-      <h3>Player's Tallies</h3>
-      <div id="user-tallies">
-        <div id="user-feedback"></div>
-        <h4>Wins:&nbsp;</h4>
-        <div id="user-wins"></div>
-        <h4>Losses:&nbsp;</h4>
-        <div id="user-losses"></div>
+      <div id="game-instructions">
+        <h3>Game Instructions</h3>
+      </div>
+      <div class="container-sm mt-3">
+        <div class="row justify-content-center">
+          <div id="random-number-container" class="col-sm-1 text-center">
+            <h4>Random Number</h4>
+            <div id="random-number"></div>
+          </div>
+          <div id="user-score-container" class="col-sm-1 ml-2 mr-2 text-center">
+            <h4>Player's Score</h4>
+            <div id="user-score"></div>
+          </div>
+          <div id="game-tokens-container" class="col-sm-6">
+            <img src="assets/images/amethyst.png" alt="Amethyst Icon" class="img-fluid img-thumbnail" id="amethyst">
+            <img src="assets/images/citrine.png" alt="Citrine Icon" class="img-fluid img-thumbnail" id="citrine">
+            <img src="assets/images/emerald.png" alt="Emerald Icon" class="img-fluid img-thumbnail" id="emerald">
+            <img src="assets/images/ruby.png" alt="Ruby Icon" class="img-fluid img-thumbnail" id="ruby">
+          </div>
+          <div id="user-tallies-container" class="col-sm-3">
+            <h4>Player's Tallies</h4>
+            <div id="user-feedback">&nbsp;</div>
+            <div>
+              <h5>Wins:&nbsp;</h5>
+              <div id="user-wins"></div>
+            </div>
+            <div>
+              <h5>Losses:&nbsp;</h5>
+              <div id="user-losses"></div>
+            </div>
+          </div>
+        </div>  
       </div>
     </main>
 
