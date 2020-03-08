@@ -9,6 +9,7 @@ number and then offers the player an opportunity to match that random number
 by incrementing a set of four (4) varying random values, represented by gem
 stones.
 ******************************************************************************/
+const crystalCollectorInstr = "<p>You will be given a random number at the start of this game.</p><p>Four crystals appear below, each assigned a unique amount of points. By clicking on a crystal, you will reveal its particular number of points and add them to your total score.</p><p>You win the game by using the crystals to increase your score until it matches the random number displayed at the beginning of the game. If your score goes above the random number, you lose the game.</p><p>The game will automatically restart once you win or lose, and the game will track your total number of wins and losses.</p><p>Have fun!</p>"
 
 class CollectorGame {
   // PROPERTIES
@@ -120,43 +121,62 @@ class CollectorGame {
   incrementWins() {
     this.#wins++
   }
+
+  /* *************************************************************
+     generateRandomNum()
+     - Generate random number for game, x, such that x is the 
+       number the player must much by incrementing token values.
+     ************************************************************* */
+  resetGameState() {
+    this.#score = 0;
+    this.generateRandomNum();
+    this.generateTokenVals();
+  }  
 }
 
 // Execute script once page is fully loaded
 $(document).ready(function() {
   let gemCollector = new CollectorGame("Gem Collector", 
-    "...", 
+    crystalCollectorInstr, 
     {"amethyst": 0, "citrine": 0, "emerald": 0, "ruby": 0});
   // DEBUG
   // console.log(gemCollector);
 
-  gemCollector.generateRandomNum();
-  gemCollector.generateTokenVals();
+  function refreshUI() {
+    $("#random-number").text(gemCollector.getRandomNum());
+    $("#user-score").text(gemCollector.getPlayerScore());
+    $("#user-wins").text(gemCollector.getPlayerWins());
+    $("#user-losses").text(gemCollector.getPlayerLosses());  
+  }
 
-  $("#random-number").text(gemCollector.getRandomNum());
-  $("#user-score").text(gemCollector.getPlayerScore());
-  $("#user-wins").text(gemCollector.getPlayerWins());
-  $("#user-losses").text(gemCollector.getPlayerLosses());
+  // Initialize game.
+  gemCollector.resetGameState();
+  refreshUI();
 
   $("img").click(function(event) {
     // DEBUG
-    console.log(event.target.id + " clicked!");
+    // console.log(event.target.id + " clicked!");
 
+    // Increment player score by value of token clicked.
     gemCollector.incrementScore(gemCollector.getTokenVal(event.target.id));
 
-    $("#user-score").text(gemCollector.getPlayerScore());
+    // Display new score.
+    refreshUI();
 
     // Handle wins ...
     if (gemCollector.getPlayerScore() === gemCollector.getRandomNum()) {
       gemCollector.incrementWins();
       $("#user-feedback").text("YOU WIN!");
-      $("#user-wins").text(gemCollector.getPlayerWins());
+      gemCollector.resetGameState();
     }
     // ... and losses.
     else if (gemCollector.getPlayerScore() > gemCollector.getRandomNum()) {
       gemCollector.incrementLosses();
       $("#user-feedback").text("You lost!");
-      $("#user-losses").text(gemCollector.getPlayerLosses());
+      gemCollector.resetGameState();
     }
+
+    // Update tallies.
+    refreshUI();
   });
 });
