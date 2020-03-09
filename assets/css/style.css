@@ -47,6 +47,11 @@ a, a:active, a:hover, a:visited {
   font-weight: 600;
 }
 
+#game-instructions-header button.btn-link:active, 
+#game-instructions-header button.btn-link:hover {
+  color: #6b77e7;
+}
+
 /******************************************************************************
  Header Elements
 *******************************************************************************/
@@ -65,8 +70,21 @@ h1 {
   margin-bottom: 0;
 }
 
+/*
 #game-instructions h3 {
   border-bottom: 1px solid #333;
+}
+*/
+
+#game-instructions-header button,
+#game-instructions-header button:active,
+#game-instructions-header button:hover {
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+#game-instructions-header button {
+  color: #333;
 }
 
 h4 {
@@ -96,9 +114,9 @@ main .container {
 
 #game-instructions {
   background: #fff;
-  border: 2px solid #6b77e7;
+  /* border: 2px solid #6b77e7;
   margin: 1vh auto;
-  padding: 2vw;
+  padding: 2vw; */
 }
 
 #random-number-container {

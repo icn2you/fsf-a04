@@ -9,7 +9,7 @@ number and then offers the player an opportunity to match that random number
 by incrementing a set of four (4) varying random values, represented by gem
 stones.
 ******************************************************************************/
-const crystalCollectorInstr = "<p>You will be given a random number at the start of this game.</p><p>Four crystals appear below, each assigned a unique amount of points. By clicking on a crystal, you will reveal its particular number of points and add them to your total score.</p><p>You win the game by using the crystals to increase your score until it matches the random number displayed at the beginning of the game. If your score goes above the random number, you lose the game.</p><p>The game will automatically restart once you win or lose, and the game will track your total number of wins and losses.</p><p>Have fun!</p>"
+const crystalCollectorInstr = "<p>You will be given a random number at the start of this game.</p><p>Four crystals appear below, each assigned a unique amount of points. By clicking on a crystal, you will reveal its particular number of points and add them to your total score.</p><p>You win the game by using the crystals to increase your score until it matches the random number displayed at the beginning of the game. If your score goes above the random number, you lose the game.</p><p>The game will automatically restart once you win or lose, and the game will track your total number of wins and losses.</p><p>Have fun! (And BTW, you can hide these instructions by clicking on the &ldquo;Game Instructions&rdquo; title above.)</p>"
 
 class CollectorGame {
   // PROPERTIES
@@ -161,7 +161,7 @@ $(document).ready(function() {
   }
 
   // Initialize game.
-  $("#game-instructions").append(gemCollector.getGameInstructions());
+  $("#game-instructions .card-body").append(gemCollector.getGameInstructions());
   givePlayerFeedback("Game " + gemCollector.getNumGames());
   gemCollector.resetGameState();
   refreshUI();

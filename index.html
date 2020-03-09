@@ -28,6 +28,8 @@
       img { width: 128px; }
       .debug-border { border: 1px solid red; }
     </style>
+    <!-- jQuery 3.4.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <title>Crystals Collector</title>
   </head>
 
@@ -43,8 +45,15 @@
 
     <!-- Primary Content -->
     <main class="container">
-      <div id="game-instructions">
-        <h3>Game Instructions</h3>
+      <div class="card mt-3">
+        <div class="card-header" id="instructions-header">
+          <h3 class="mb-0" id="game-instructions-header">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#game-instructions" aria-expanded="true" aria-controls="game-instructions">Game Instructions</button>
+          </h3>
+        </div>
+        <div id="game-instructions" class="collapse show" aria-labelledby="instructions-header">
+          <div class="card-body"></div>
+        </div>
       </div>
       <div class="container-sm mt-3">
         <div class="row justify-content-center">
