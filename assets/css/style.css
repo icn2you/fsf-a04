@@ -70,12 +70,6 @@ h1 {
   margin-bottom: 0;
 }
 
-/*
-#game-instructions h3 {
-  border-bottom: 1px solid #333;
-}
-*/
-
 #game-instructions-header button,
 #game-instructions-header button:active,
 #game-instructions-header button:hover {
@@ -101,22 +95,20 @@ h5,
 /******************************************************************************
  Main Elements (Primary Content)
 *******************************************************************************/
-main .container {
-  margin-bottom: 10vh;
+main.container {
+  max-width: 960px;
+  min-height: 100vh;
 }
 
 #game-instructions,
 #random-number-container,
 #user-score-container,
 #user-tallies-container {
-  border-radius: 5px;
+  border-radius: 0.25rem;
 }
 
 #game-instructions {
   background: #fff;
-  /* border: 2px solid #6b77e7;
-  margin: 1vh auto;
-  padding: 2vw; */
 }
 
 #random-number-container {
@@ -139,6 +131,13 @@ main .container {
 #user-feedback {
   font-size: 1.25rem;
   text-align: center;
+}
+
+/******************************************************************************
+ Image Elements
+*******************************************************************************/
+img { 
+  width: 128px;
 }
 
 /******************************************************************************

@@ -23,9 +23,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Site-specific Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.sm.css">
     <!-- Temporary Styles -->
     <style>
-      img { width: 128px; }
       .debug-border { border: 1px solid red; }
     </style>
     <!-- jQuery 3.4.1 -->
@@ -55,23 +55,17 @@
           <div class="card-body"></div>
         </div>
       </div>
-      <div class="container-sm mt-3">
-        <div class="row justify-content-center">
-          <div id="random-number-container" class="col-sm-1 text-center">
+      <div class="container-sm">
+        <div class="row justify-content-center mt-3">
+          <div id="random-number-container" class="col-sm-3 text-center">
             <h4>Random Number</h4>
             <div id="random-number"></div>
           </div>
-          <div id="user-score-container" class="col-sm-1 ml-2 mr-2 text-center">
+          <div id="user-score-container" class="col-sm-3 ml-2 mr-2 text-center">
             <h4>Player's Score</h4>
             <div id="user-score"></div>
           </div>
-          <div id="game-tokens-container" class="col-sm-6">
-            <img src="assets/images/amethyst.png" alt="Amethyst Icon" class="img-fluid img-thumbnail" id="amethyst">
-            <img src="assets/images/citrine.png" alt="Citrine Icon" class="img-fluid img-thumbnail" id="citrine">
-            <img src="assets/images/emerald.png" alt="Emerald Icon" class="img-fluid img-thumbnail" id="emerald">
-            <img src="assets/images/ruby.png" alt="Ruby Icon" class="img-fluid img-thumbnail" id="ruby">
-          </div>
-          <div id="user-tallies-container" class="col-sm-3">
+          <div id="user-tallies-container" class="col-sm-3 text-center">
             <h4>Player's Tallies</h4>
             <div id="user-feedback">&nbsp;</div>
             <div>
@@ -83,7 +77,15 @@
               <div id="user-losses"></div>
             </div>
           </div>
-        </div>  
+        </div>
+        <div class="row mx-auto text-center mt-3 mb-10">
+          <div id="game-tokens-container" class="col-sm-12">
+            <img src="assets/images/amethyst.png" alt="Amethyst Icon" class="img-fluid img-thumbnail" id="amethyst">
+            <img src="assets/images/citrine.png" alt="Citrine Icon" class="img-fluid img-thumbnail" id="citrine">
+            <img src="assets/images/emerald.png" alt="Emerald Icon" class="img-fluid img-thumbnail" id="emerald">
+            <img src="assets/images/ruby.png" alt="Ruby Icon" class="img-fluid img-thumbnail" id="ruby">
+          </div>
+        </div>
       </div>
     </main>
 

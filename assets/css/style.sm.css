@@ -1,0 +1,51 @@
+/******************************************************************************
+FSWD:  Christopher B. Zenner
+Date:  03/07/2020
+File:  style.css
+Ver.:  0.1.0 20200309
+
+This CSS specifies the layout and style for the Crystals Collector game, 
+rendering in smaller viewports. It corrects two small issues as the viewport
+shrinks, making the UI fully responsive.
+*******************************************************************************/
+
+/* Debug */
+/* { border: 1px solid red !important; }
+   { border: 1px solid orange !important; }
+   { border: 1px solid yellow !important; }
+   { border: 1px solid green !important; }
+   { border: 1px solid blue !important; }
+   { border: 1px solid purple !important; }
+*/
+
+/******************************************************************************
+ Tablets/Large Phones
+ ******************************************************************************/
+@media screen and (max-width: 768px) {
+  /******************************************************************************
+   Main Elements (Primary Content)
+  *******************************************************************************/
+  main.container {
+    min-height: 150vh;
+  }
+
+  img {
+    width: 100px;
+  }
+}
+
+/******************************************************************************
+ Standard/Small Phones
+ ******************************************************************************/
+@media screen and (max-width: 576px) {
+  /******************************************************************************
+   Main Elements (Primary Content)
+  *******************************************************************************/
+  main.container {
+    min-height: 200vh;
+  }
+
+  #user-score-container {
+    margin: 1rem 0 !important;
+  }
+}
