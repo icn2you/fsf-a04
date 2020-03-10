@@ -167,9 +167,6 @@ $(document).ready(function() {
   refreshUI();
 
   $("img").click(function(event) {
-    // DEBUG
-    // console.log(event.target.id + " clicked!");
-
     // Increment player score by value of token clicked.
     gemCollector.incrementScore(gemCollector.getTokenVal(event.target.id));
 
